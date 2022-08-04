@@ -52,3 +52,22 @@ function playRound(playerSelection, computerSelection)  {
     }
 }
 
+/*Score Keeping Loop in order to track points gained by player vs computer, first to 5 wins*/
+
+for (let i = 0; i <5;i++) {
+
+}
+
+let playerPrompt = prompt("Rock? Paper? Or Scissors");
+
+/*Use a pop-up window to let the user type in their choice and have it 
+determine winner against the computer*/
+if (playerPrompt.toLowerCase() === "rock") {
+    console.log(playRound("Rock",computerSelection));    
+} else if (playerPrompt.toLowerCase() === "paper") {
+    console.log(playRound("Paper", computerSelection));
+} else if (playerPrompt.toLowerCase() === "scissors") {
+    console.log(playRound("Scissors", computerSelection))
+} else {
+    alert ("Oh no, a typo, try again")
+}
