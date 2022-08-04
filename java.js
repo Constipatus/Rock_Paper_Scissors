@@ -47,8 +47,8 @@ randomly generated selection of the computer*/
 function playRound(playerSelection, computerSelection)  {
     switch (true) {
         case playerSelection==='Rock' && computerSelection==='Rock':
-            alert (`"You both chose Rock, It's a tie!" + 
-            " Player Score:" ${playerScore} + " Computer Score:" + ${computerScore}`)
+            alert (`"You both chose Rock, It's a tie!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Rock' && computerSelection==='Paper':
             computerScore++
@@ -95,7 +95,7 @@ function playRound(playerSelection, computerSelection)  {
 /*Conditions for the victory or loss screen*/
 
 if (playerScore===3) {
-    alert ("Well I'll be! You impressed me! You won!")
+    alert ("Well I'll be! You impressed me! You won!")  
 } else if (computerScore===3) {
     alert ("Zounds! You lost this match! Try again!")
 }
