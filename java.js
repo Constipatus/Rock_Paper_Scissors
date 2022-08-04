@@ -1,5 +1,8 @@
 
 /*Function to randomly generate Rock, Paper, or Scissors, to be used as the game input later*/
+let playerScore=0
+let computerScore=0
+
 function getComputerChoice() {
     let computerChoices = ['Rock', 'Paper', 'Scissors']
     let randIndex = Math.floor(Math.random() * computerChoices.length);
@@ -14,8 +17,28 @@ function getComputerChoice() {
 
 }
 
-const playerSelection = 'Rock';
+const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+
+function getPlayerChoice() {
+    let playerPrompt = prompt("Rock? Paper? Or Scissors");
+    
+    return playerPrompt;
+}
+
+
+
+if (playerSelection.toLowerCase() === "rock") {
+    onsole.log(playRound("Rock",computerSelection));    
+} else if (playerSelection.toLowerCase() === "paper") {
+    console.log(playRound("Paper", computerSelection));
+} else if (playerSelection.toLowerCase() === "scissors") {
+    console.log(playRound("Scissors", computerSelection))
+} else {
+    alert ("Oh no, a typo, try again")
+}
+
+
 
 /*Determine scores earned based on the selection of the player verse the 
 randomly generated selection of the computer*/
@@ -23,51 +46,51 @@ randomly generated selection of the computer*/
 function playRound(playerSelection, computerSelection)  {
     switch (true) {
         case playerSelection==='Rock' && computerSelection==='Rock':
-            alert ("You both chose Rock, It's a tie!")
+            alert (`"You both chose Rock, It's a tie!" + 
+            " Player Score:" ${playerScore} + " Computer Score:" + ${computerScore}`)
             break;
         case playerSelection==='Rock' && computerSelection==='Paper':
-            alert ("Paper beats Rock, you lose this one!")
+            computerScore++
+            alert (`"Paper beats Rock, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Rock' && computerSelection==='Scissors':
-            alert ("Rock beats Scissors, you win a point!")
+            playerScore++
+            alert (`"Rock beats Scissors, you win a point!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Paper' && computerSelection==='Rock':
-            alert ("Paper beats Rock, you win a point!")
+            playerScore++
+            alert (`"Paper beats Rock, you win a point!"
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Paper' && computerSelection==='Paper':
-            alert ("You both chose Paper, It's a tie!")
+            alert (`"You both chose Paper, It's a tie!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Paper'  && computerSelection==='Scissors':
-            alert ("Scissors beats Paper, you lose this one!")
+            computerScore++
+            alert (`"Scissors beats Paper, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Scissors' && computerSelection==='Rock':
-            alert ("Rock beats Scissors, you lose this one!")
+            computerScore++;
+            alert (`"Rock beats Scissors, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`);
             break;
         case playerSelection==='Scissors' && computerSelection==='Paper':
-            alert ("Scissors beats paper, you win a point!")
+            playerScore++
+            alert (`"Scissors beats paper, you win a point!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;
         case playerSelection==='Scissors'  && computerSelection==='Scissors':
-            alert ("You both chose Scissors, It's a tie!")
+            alert (`"You both chose Scissors, It's a tie!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)
             break;       
     }
 }
 
 /*Score Keeping Loop in order to track points gained by player vs computer, first to 5 wins*/
 
-for (let i = 0; i <5;i++) {
-
-}
-
-let playerPrompt = prompt("Rock? Paper? Or Scissors");
-
 /*Use a pop-up window to let the user type in their choice and have it 
 determine winner against the computer*/
-if (playerPrompt.toLowerCase() === "rock") {
-    console.log(playRound("Rock",computerSelection));    
-} else if (playerPrompt.toLowerCase() === "paper") {
-    console.log(playRound("Paper", computerSelection));
-} else if (playerPrompt.toLowerCase() === "scissors") {
-    console.log(playRound("Scissors", computerSelection))
-} else {
-    alert ("Oh no, a typo, try again")
-}
