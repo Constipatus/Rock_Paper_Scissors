@@ -1,8 +1,9 @@
 
-
+/*Sets the score to 0 as a basis to start the rounds*/
 let playerScore=0
 let computerScore=0
 
+/*creates the conditions to loop the prompts*/
 while (playerScore<3 && computerScore<3) {
 
 /*Function to randomly generate Rock, Paper, or Scissors, to be used as the computer input later*/
@@ -19,7 +20,7 @@ function getComputerChoice() {
     return result
 
 }
-
+/*The prompt alert to ask for the players decision*/
 function getPlayerChoice() {
     let playerPrompt = prompt("Rock? Paper? Or Scissors");
     return playerPrompt;
@@ -91,12 +92,10 @@ function playRound(playerSelection, computerSelection)  {
 }
 }  
 
+/*Conditions for the victory or loss screen*/
+
 if (playerScore===3) {
-    alert ("Well I'll be! You impressed me! You wont!")
+    alert ("Well I'll be! You impressed me! You won!")
 } else if (computerScore===3) {
     alert ("Zounds! You lost this match! Try again!")
 }
-/*Score Keeping Loop in order to track points gained by player vs computer, first to 5 wins*/
-
-/*Use a pop-up window to let the user type in their choice and have it 
-determine winner against the computer*/
