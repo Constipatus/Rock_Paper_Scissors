@@ -1,8 +1,11 @@
 
-/*Function to randomly generate Rock, Paper, or Scissors, to be used as the game input later*/
+
 let playerScore=0
 let computerScore=0
 
+while (playerScore<3 && computerScore<3) {
+
+/*Function to randomly generate Rock, Paper, or Scissors, to be used as the computer input later*/
 function getComputerChoice() {
     let computerChoices = ['Rock', 'Paper', 'Scissors']
     let randIndex = Math.floor(Math.random() * computerChoices.length);
@@ -17,19 +20,18 @@ function getComputerChoice() {
 
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-
 function getPlayerChoice() {
     let playerPrompt = prompt("Rock? Paper? Or Scissors");
-    
     return playerPrompt;
 }
 
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
 
+/*Compares selections of player to computer to round results*/
 
 if (playerSelection.toLowerCase() === "rock") {
-    onsole.log(playRound("Rock",computerSelection));    
+    console.log(playRound("Rock",computerSelection));    
 } else if (playerSelection.toLowerCase() === "paper") {
     console.log(playRound("Paper", computerSelection));
 } else if (playerSelection.toLowerCase() === "scissors") {
@@ -37,8 +39,6 @@ if (playerSelection.toLowerCase() === "rock") {
 } else {
     alert ("Oh no, a typo, try again")
 }
-
-
 
 /*Determine scores earned based on the selection of the player verse the 
 randomly generated selection of the computer*/
@@ -89,7 +89,13 @@ function playRound(playerSelection, computerSelection)  {
             break;       
     }
 }
+}  
 
+if (playerScore===3) {
+    alert ("Well I'll be! You impressed me! You wont!")
+} else if (computerScore===3) {
+    alert ("Zounds! You lost this match! Try again!")
+}
 /*Score Keeping Loop in order to track points gained by player vs computer, first to 5 wins*/
 
 /*Use a pop-up window to let the user type in their choice and have it 
