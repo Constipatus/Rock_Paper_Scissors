@@ -3,9 +3,6 @@
 let playerScore=0
 let computerScore=0
 
-/*creates the conditions to loop the prompts*/
-while (playerScore<3 && computerScore<3) {
-
 /*Function to randomly generate Rock, Paper, or Scissors, to be used as the computer input later*/
 function getComputerChoice() {
     let computerChoices = ['Rock', 'Paper', 'Scissors']
@@ -18,33 +15,21 @@ function getComputerChoice() {
         result = "Scissors";
     }
     return result
-
 }
 /*The prompt alert to ask for the players decision*/
-function getPlayerChoice() {
-    let playerPrompt = prompt("Rock? Paper? Or Scissors");
-    return playerPrompt;
-}
 
-const playerSelection = getPlayerChoice();
+//const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+
 
 /*Compares selections of player to computer to round results*/
 
-if (playerSelection.toLowerCase() === "rock") {
-    console.log(playRound("Rock",computerSelection));    
-} else if (playerSelection.toLowerCase() === "paper") {
-    console.log(playRound("Paper", computerSelection));
-} else if (playerSelection.toLowerCase() === "scissors") {
-    console.log(playRound("Scissors", computerSelection))
-} else {
-    alert ("Oh no, a typo, try again")
-}
 
 /*Determine scores earned based on the selection of the player verse the 
 randomly generated selection of the computer*/
 
 function playRound(playerSelection, computerSelection)  {
+    
     switch (true) {
         case playerSelection==='Rock' && computerSelection==='Rock':
             alert (`"You both chose Rock, It's a tie!" 
@@ -90,12 +75,29 @@ function playRound(playerSelection, computerSelection)  {
             break;       
     }
 }
-}  
+
+const playerSelect = document.querySelectorAll('.btn');
+
+playerSelect.forEach(btn => btn.addEventListener('click', () =>
+    if (playerSelect.id==='rock') {
+        if (computerSelection==='rock') {
+            alert (`"You both chose Rock, It's a tie!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)                
+        } else if (computerSelection==='paper') {
+            computerScore++
+            alert (`"Paper beats Rock, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        } else { 
+            playerScore++
+            alert (`"Rock beats Scissors, you win a point!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        }
+    } else (playerSelect.id==='paper') {
+        
+        }))
+
+
+
+
 
 /*Conditions for the victory or loss screen*/
-
-if (playerScore===3) {
-    alert ("Well I'll be! You impressed me! You won!")  
-} else if (computerScore===3) {
-    alert ("Zounds! You lost this match! Try again!")
-}
