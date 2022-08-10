@@ -8,11 +8,11 @@ function getComputerChoice() {
     let computerChoices = ['Rock', 'Paper', 'Scissors']
     let randIndex = Math.floor(Math.random() * computerChoices.length);
     if (randIndex===0) {
-        result = "Rock";
+        result = "rock";
     } else if (randIndex===1) {
-        result = "Paper";
+        result = "paper";
     } else {
-        result = "Scissors";
+        result = "scissors";
     }
     return result
 }
@@ -78,8 +78,9 @@ function playRound(playerSelection, computerSelection)  {
 
 const playerSelect = document.querySelectorAll('.btn');
 
-playerSelect.forEach(btn => btn.addEventListener('click', () =>
-    if (playerSelect.id==='rock') {
+playerSelect.forEach(btn => btn.addEventListener('click', (playRoundOne)))
+function playRoundOne() {
+  if (playerSelect.id==='rock') {
         if (computerSelection==='rock') {
             alert (`"You both chose Rock, It's a tie!" 
             Player Score:${playerScore} Computer Score:${computerScore}`)                
@@ -92,9 +93,33 @@ playerSelect.forEach(btn => btn.addEventListener('click', () =>
             alert (`"Rock beats Scissors, you win a point!" 
             Player Score:${playerScore} Computer Score:${computerScore}`)
         }
-    } else (playerSelect.id==='paper') {
-        
-        }))
+    } else if (playerSelect.id==='paper') {
+        if (computerSelection==='rock') {
+            playerScore++
+            alert (`"Paper beats Rock, you win a point!"
+            Player Score:${playerScore} Computer Score:${computerScore}`)            
+        } else if (computerSelection==='paper') {
+            alert (`"You both chose Paper, It's a tie!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        } else {
+            computerScore++
+            alert (`"Scissors beats Paper, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        }        
+    } else {
+        if (computerSelection==='rock') {
+            computerScore++;
+            alert (`"Rock beats Scissors, you lose this one!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        } else if (computerSelection==='paper') {
+            playerScore++
+            alert (`"Scissors beats paper, you win a point!"  
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        } else {
+            alert (`"You both chose Scissors, It's a tie!" 
+            Player Score:${playerScore} Computer Score:${computerScore}`)
+        }
+}}
 
 
 
