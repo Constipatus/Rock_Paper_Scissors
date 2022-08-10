@@ -19,107 +19,56 @@ function getComputerChoice() {
 /*The prompt alert to ask for the players decision*/
 
 //const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
+//const computerSelection = getComputerChoice();
 
 
 /*Compares selections of player to computer to round results*/
-
+const playRock = document.querySelector('#rock')
+const playPaper = document.querySelector('#paper')
+const playScissors = document.querySelector('#scissors')
 
 /*Determine scores earned based on the selection of the player verse the 
 randomly generated selection of the computer*/
 
-function playRound(playerSelection, computerSelection)  {
+function playRound()  {
+    if (playerSelection===computerSelection) {
+        alert ("You tied! Try Again!")
+    } else if (playerSelection==='Rock' && computerSelection==='Paper') {
+        alert ("Your rock became a present via paper, crud!")
+    } else if (playerSelection==='Rock' && computerSelection==='Scissors') {
+        alert ("Your rock has has these scissors bent out of shape, Nice!")
+    } else if (playerSelection==='Paper' && computerSelection==='Rock') {
+        alert ("Your paper has crumbled the rock. Woohoo!")
+    } else if (playerSelection==='Paper' && computerSelection==='Scissors') {
+        alert ("Your paper can't shred a tear cuz.. of.. scissors.. doh")
+    } else if (playerSelection==='Scissors' && computerSelection==='Paper') {
+        alert ("Your scissors snipped a snappy victory over paper, Grats")
+    } else if (playerSelection==='Scissors' && computerSelection==='Rock') {
+        alert ("Your scissors couldn't cut it here with this rock, oh no")
+    }}
     
-    switch (true) {
-        case playerSelection==='Rock' && computerSelection==='Rock':
-            alert (`"You both chose Rock, It's a tie!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Rock' && computerSelection==='Paper':
-            computerScore++
-            alert (`"Paper beats Rock, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Rock' && computerSelection==='Scissors':
-            playerScore++
-            alert (`"Rock beats Scissors, you win a point!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Paper' && computerSelection==='Rock':
-            playerScore++
-            alert (`"Paper beats Rock, you win a point!"
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Paper' && computerSelection==='Paper':
-            alert (`"You both chose Paper, It's a tie!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Paper'  && computerSelection==='Scissors':
-            computerScore++
-            alert (`"Scissors beats Paper, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Scissors' && computerSelection==='Rock':
-            computerScore++;
-            alert (`"Rock beats Scissors, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`);
-            break;
-        case playerSelection==='Scissors' && computerSelection==='Paper':
-            playerScore++
-            alert (`"Scissors beats paper, you win a point!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;
-        case playerSelection==='Scissors'  && computerSelection==='Scissors':
-            alert (`"You both chose Scissors, It's a tie!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-            break;       
-    }
-}
+    
 
-const playerSelect = document.querySelectorAll('.btn');
 
-playerSelect.forEach(btn => btn.addEventListener('click', (playRoundOne)))
-function playRoundOne() {
-  if (playerSelect.id==='rock') {
-        if (computerSelection==='rock') {
-            alert (`"You both chose Rock, It's a tie!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)                
-        } else if (computerSelection==='paper') {
-            computerScore++
-            alert (`"Paper beats Rock, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        } else { 
-            playerScore++
-            alert (`"Rock beats Scissors, you win a point!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        }
-    } else if (playerSelect.id==='paper') {
-        if (computerSelection==='rock') {
-            playerScore++
-            alert (`"Paper beats Rock, you win a point!"
-            Player Score:${playerScore} Computer Score:${computerScore}`)            
-        } else if (computerSelection==='paper') {
-            alert (`"You both chose Paper, It's a tie!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        } else {
-            computerScore++
-            alert (`"Scissors beats Paper, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        }        
-    } else {
-        if (computerSelection==='rock') {
-            computerScore++;
-            alert (`"Rock beats Scissors, you lose this one!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        } else if (computerSelection==='paper') {
-            playerScore++
-            alert (`"Scissors beats paper, you win a point!"  
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        } else {
-            alert (`"You both chose Scissors, It's a tie!" 
-            Player Score:${playerScore} Computer Score:${computerScore}`)
-        }
-}}
+
+playRock.addEventListener('click', function (e) {
+    playerSelection = 'Rock';
+    computerSelection = getComputerChoice();
+    playRound();
+})
+
+playPaper.addEventListener('click', function (e) {
+    playerSelection = 'Paper'
+    computerSelection = getComputerChoice();
+    playRound()
+})
+
+playScissors.addEventListener('click', function (e) {
+    playerSelection = 'Scissors'
+    computerSelection = getComputerChoice();
+    playRound()
+})
+
 
 
 
