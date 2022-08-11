@@ -7,11 +7,47 @@
     <title>Document</title>
 
 </head>
+<link rel="stylesheet" href="style.css">
 <script src="java.js" defer></script>
+
 <body>
-    <button id="rock" class="btn">Rock</button>
-    <button id="paper" class="btn">Paper</button>
-    <button id="scissors" class="btn">Scissors</button>
-    
+    <div class="header">
+        <p>Ye Olde Rocke, Papier, Scissurs</p>
+    </div>
+    <div class="choiceImage">
+        <div id = "rockImage" class = "buttonBox">
+            <img id="rockPic" src = "images/rockface.jpg">
+        </div>
+        <div id = "paperImage" class ="buttonBox">
+            <img id="paperPic" src = "images/paperwitheyes.jpg">
+        </div>
+        <div id = "scissorsImage" class = "buttonBox">
+            <img id ="scissorsPic" src = "images/scissors.png">
+        </div>
+    </div>
+    <div class="choiceButtons">
+        <button id="rock" class="btn">Rock</button>
+        <button id="paper" class="btn">Paper</button>
+        <button id="scissors" class="btn">Scissors</button>
+    </div>
+    <div class="scoreBox">
+        <div class="scoreText">
+            <div id="winText">Wins</div>
+            <div id="lossText">Losses</div>
+        </div>
+        <div class="scorepoints">
+            <div id="winPoints">0</div>
+            <div id ="lossPoints">0</div>
+        </div>
+    </div>
+    <div class = "resultBox">
+        <div class = "result">
+            <p id="resultText">Go Ahead, pick a button! Throw it down!</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright James Quesada</p>
+        <p>Punderworld Inc</p>
+    </div>
 </body>
 </html>
